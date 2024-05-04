@@ -97,7 +97,7 @@ PUSH	R17
         LDS		R24,ADCL	
         LDS 	R25,ADCH
 
-		sts high(TermoDormi+1),r25	;Guarda el valor ya dividido
+		sts high(TermoDormi),r25	;Guarda el valor en la variable TermoDormi
 		sts low(TermoDormi),r24
 
 
@@ -117,7 +117,7 @@ RETi
 
 enviar_med:
 	
-		lds r24,low(TermoDormi)		;Manda el valor
+		lds r24,low(TermoDormi)		;carga el valor al registro para enviar
 		lds r25,high(TermoDormi)
 		call DESARMAR_ENVIAR1
 ret
